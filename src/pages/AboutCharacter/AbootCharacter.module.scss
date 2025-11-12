@@ -1,0 +1,21 @@
+.about__container {
+	width: 100%;
+}
+
+.about__goBack {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	gap: 12px;
+	margin-top: 42px;
+}
+
+.about__content {
+	margin-top: -35px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 100%;
+}
