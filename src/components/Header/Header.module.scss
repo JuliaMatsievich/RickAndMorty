@@ -1,11 +1,8 @@
-.header__container {
-	height: 60px;
+.header {
 	width: 100vw;
-	box-shadow: -2px 0 8px 2px rgba(0, 0, 0, 0.1);
+	height: 60px;
 	padding: 0 210px;
-}
-
-.header__content {
+	box-shadow: -2px 0 8px 2px rgba(0, 0, 0, 0.1);
 }
 
 .header__logo {

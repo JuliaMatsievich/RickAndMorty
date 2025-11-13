@@ -7,7 +7,7 @@ export const AboutCharacter = () => {
       <div className={styles.about__container}>
         <div className={styles.about__goBack}>
           <ArrowBack />
-          <p>НАЗАД</p>
+          <p>GO BACK</p>
         </div>
         <div className={styles.about__content}>AboutCharacter</div>
       </div>
