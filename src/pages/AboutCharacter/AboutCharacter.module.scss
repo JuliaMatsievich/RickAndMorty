@@ -1,21 +1,20 @@
 .about__container {
-	width: 100%;
+  width: 100%;
 }
 
 .about__goBack {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 12px;
-	margin-top: 42px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin-top: 42px;
 }
 
 .about__content {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	width: 100%;
-	margin-top: -35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
 }
