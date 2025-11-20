@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router';
-import { Footer } from '../Footer/Footer.tsx';
-import { Header } from '../Header/Header.tsx';
+
+import { Footer, Header } from '../../components';
+
 import styles from './PageLayout.module.scss';
 
 export const PageLayout = () => {
