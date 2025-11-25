@@ -1,5 +1,9 @@
-import { Select, Status } from '../';
-import { GENDER_OPTIONS, SPECIES_OPTIONS, STATUS_OPTIONS } from '../../constants';
+import { Select, Status } from '@shared/components';
+import {
+  GENDER_OPTIONS,
+  SPECIES_OPTIONS,
+  STATUS_OPTIONS
+} from '@shared/constants';
 
 import styles from './FilterMenu.module.scss';
 
@@ -14,7 +18,7 @@ export const FilterMenu = () => {
         options={GENDER_OPTIONS}
         placeholder='Gender'
       />
-       <Select
+      <Select
         options={STATUS_OPTIONS}
         placeholder='Status'
         SelectOptionContentComponent={Status}

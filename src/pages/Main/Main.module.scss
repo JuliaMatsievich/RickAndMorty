@@ -1,5 +1,8 @@
-.main__logo {
-   align-self: center;
-   padding-top: 26px;
-   padding-bottom: 16px;
+.main {
+   &__logo {
+      align-self: center;
+      padding-top: 26px;
+      padding-bottom: 16px;
+   }
 }
+

@@ -1,2 +1,2 @@
-export * from './Main/Main.tsx';
-export * from './AboutCharacter/AboutCharacter.tsx';
+export * from './Main/Main';
+export * from './AboutCharacter/AboutCharacter';

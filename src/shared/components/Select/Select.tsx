@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-import { ArrowDown, ArrowUp } from '../../../assets/svg';
-import type { ISelectOption, ISelectOptionContentProps } from '../../types';
+import { ArrowDown, ArrowUp } from '@assets/svg';
+import type { ISelectOption, ISelectOptionContentProps } from '@shared/types';
 
 import styles from './Select.module.scss';
 

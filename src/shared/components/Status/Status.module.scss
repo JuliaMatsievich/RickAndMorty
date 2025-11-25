@@ -1,23 +1,26 @@
 .status {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.status__img {
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
-}
-
-.status__img_alive {
-  background-color: #12b800;
-}
-
-.status__img_dead {
-  background-color: #df0000;
-}
-
-.status__img_unknown {
-  background-color: #ff9900;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	
+	&__img {
+		width: 10px;
+		height: 10px;
+		border-radius: 100%;
+	}
+	
+	&__img {
+		
+		&_alive {
+			background-color: #12b800;
+		}
+		
+		&_dead {
+			background-color: #df0000;
+		}
+		
+		&_unknown {
+			background-color: #ff9900;
+		}
+	}
 }

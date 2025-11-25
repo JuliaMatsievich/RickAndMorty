@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router';
 
-import { Footer, Header } from '../../components';
+import { Footer, Header } from '@shared/components';
 
 import styles from './PageLayout.module.scss';
 

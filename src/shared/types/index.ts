@@ -1,3 +1,6 @@
-import type { ISelectOption, ISelectOptionContentProps } from './SelectOption.types.ts';
+import type {
+  ISelectOption,
+  ISelectOptionContentProps
+} from './SelectOption.types';
 
-export type {ISelectOption, ISelectOptionContentProps}
+export type { ISelectOption, ISelectOptionContentProps };
