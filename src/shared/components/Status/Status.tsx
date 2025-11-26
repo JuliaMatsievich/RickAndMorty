@@ -1,15 +1,16 @@
+import type { ISelectOption } from '@/shared/types';
+
 import styles from './Status.module.scss';
 
 interface ISelectOptionContentProps {
-  value: string;
+  option: ISelectOption;
 }
 
-export const Status = ({ value }: ISelectOptionContentProps) => {
-  const statusModifer = value.toLowerCase();
-  const statusClass = styles[`status__img_${statusModifer}`];
+export const Status = ({ option }: ISelectOptionContentProps) => {
+  const statusClass = styles[`status__img_${option.value}`];
   return (
     <div className={styles.status}>
-      {value}
+      {option.label}
       <div className={`${styles.status__img} ${statusClass}`}></div>
     </div>
   );

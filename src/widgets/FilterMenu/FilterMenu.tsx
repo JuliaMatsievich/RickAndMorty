@@ -1,9 +1,9 @@
-import { Select, Status } from '@shared/components';
+import { Select, Status } from '@/shared/components';
 import {
   GENDER_OPTIONS,
   SPECIES_OPTIONS,
   STATUS_OPTIONS
-} from '@shared/constants';
+} from '@/shared/constants';
 
 import styles from './FilterMenu.module.scss';
 

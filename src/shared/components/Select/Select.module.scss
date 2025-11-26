@@ -1,7 +1,7 @@
 .select {
   display: flex;
   flex-direction: column;
-  
+
   &__placeholder {
     border: 1px solid rgba(0, 0, 0, 0.38);
     border-radius: 8px;
@@ -13,7 +13,7 @@
     padding-left: 14px;
     padding-right: 15px;
     cursor: pointer;
-    
+
     &_small {
       border: 1px solid #393939;
       border-radius: 6px;
@@ -23,12 +23,12 @@
       padding-right: 6px;
     }
   }
-  
+
   &__arrow_small {
     width: 14px;
     height: 14px;
   }
-  
+
   &__list {
     border: 1px solid rgba(0, 0, 0, 0.38);
     border-radius: 8px;
@@ -37,18 +37,18 @@
     list-style: none;
     display: flex;
     flex-direction: column;
-    
+
     &_small {
       width: 94px;
     }
   }
-  
+
   &__text {
     font-weight: 400;
     font-size: 16px;
     line-height: 119%;
     color: rgba(0, 0, 0, 0.6);
-    
+
     &_small {
       font-size: 14px;
       line-height: 150%;
@@ -56,29 +56,28 @@
       color: rgba(0, 0, 0, 0.6);
     }
   }
-  
+
   &__listItem {
     cursor: pointer;
     padding: 10.5px 15px 10.5px 14px;
-    
+
     &_small {
       padding: 5px;
     }
-    
+
     &:hover {
       background-color: #dafed1;
       border: none;
     }
-    
+
     &:first-child:hover {
       border-top-right-radius: 8px;
       border-top-left-radius: 8px;
     }
-    
+
     &:last-child:hover {
       border-bottom-right-radius: 8px;
       border-bottom-left-radius: 8px;
     }
   }
 }
-

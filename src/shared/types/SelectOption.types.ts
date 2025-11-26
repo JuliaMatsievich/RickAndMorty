@@ -1,8 +1,8 @@
 export interface ISelectOption {
-    id: string;
-    value: string;
+  value: string;
+  label: string;
 }
 
 export interface ISelectOptionContentProps {
-    value: string
+  option: ISelectOption;
 }

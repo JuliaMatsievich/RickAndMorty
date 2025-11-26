@@ -1,4 +1,4 @@
-import { ArrowBack } from '@assets/svg';
+import { ArrowBack } from '@/assets/svg';
 
 import styles from './AboutCharacter.module.scss';
 

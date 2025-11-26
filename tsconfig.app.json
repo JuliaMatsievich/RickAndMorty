@@ -20,10 +20,10 @@
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"],
-      "@assets/*": ["assets/*"],
-      "@pages/*": ["pages/*"],
-      "@shared/*": ["shared/*"],
-      "@widgets/*": ["widgets/*"]
+      "@/assets/*": ["assets/*"],
+      "@/pages/*": ["pages/*"],
+      "@/shared/*": ["shared/*"],
+      "@/widgets/*": ["widgets/*"]
     },
 
     /* Linting */

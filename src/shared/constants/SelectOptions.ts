@@ -1,26 +1,26 @@
 import type { ISelectOption } from '../types';
 
 export const SPECIES_OPTIONS: ISelectOption[] = [
-  { id: 'Human', value: 'Human' },
-  { id: 'Alien', value: 'Alien' },
-  { id: 'Humanoid', value: 'Humanoid' },
-  { id: 'Animal', value: 'Animal' },
-  { id: 'Robot', value: 'Robot' },
-  { id: 'Cronenberg', value: 'Cronenberg' },
-  { id: 'Mythology', value: 'Mythology' },
-  { id: 'Disease', value: 'Disease' },
-  { id: 'Unknown', value: 'Unknown' }
+  { value: 'human', label: 'Human' },
+  { value: 'alien', label: 'Alien' },
+  { value: 'humanoid', label: 'Humanoid' },
+  { value: 'animal', label: 'Animal' },
+  { value: 'robot', label: 'Robot' },
+  { value: 'cronenberg', label: 'Cronenberg' },
+  { value: 'mythology', label: 'Mythology' },
+  { value: 'disease', label: 'Disease' },
+  { value: 'unknown', label: 'Unknown' }
 ];
 
 export const GENDER_OPTIONS: ISelectOption[] = [
-  { id: 'female', value: 'Female' },
-  { id: 'male', value: 'Male' },
-  { id: 'genderless', value: 'Genderless' },
-  { id: 'unknown', value: 'Unknown' }
+  { value: 'female', label: 'Female' },
+  { value: 'male', label: 'Male' },
+  { value: 'genderless', label: 'Genderless' },
+  { value: 'unknown', label: 'Unknown' }
 ];
 
 export const STATUS_OPTIONS: ISelectOption[] = [
-  { id: 'alive', value: 'Alive' },
-  { id: 'dead', value: 'Dead' },
-  { id: 'unknown', value: 'Unknown' }
+  { value: 'alive', label: 'Alive' },
+  { value: 'dead', label: 'Dead' },
+  { value: 'unknown', label: 'Unknown' }
 ];

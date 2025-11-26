@@ -1,4 +1,4 @@
-import { Logo } from '@assets/svg';
+import { Logo } from '@/assets/svg';
 
 import styles from './Header.module.scss';
 

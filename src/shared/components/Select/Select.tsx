@@ -1,14 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-import { ArrowDown, ArrowUp } from '@assets/svg';
-import type { ISelectOption, ISelectOptionContentProps } from '@shared/types';
+import { ArrowDown, ArrowUp } from '@/assets/svg';
+import type { ISelectOption, ISelectOptionContentProps } from '@/shared/types';
 
 import styles from './Select.module.scss';
 
 export const DefaultSelectOptionContent = (
   props: ISelectOptionContentProps
 ) => {
-  return <>{props.value}</>;
+  return <>{props.option.label}</>;
 };
 
 interface ISelectProps {
@@ -25,7 +25,7 @@ export const Select = ({
   size = 'big'
 }: ISelectProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selected, setSelected] = useState<string>('');
+  const [selected, setSelected] = useState<ISelectOption>();
 
   const selectRef = useRef<HTMLDivElement>(null);
 
@@ -45,19 +45,19 @@ export const Select = ({
     setIsOpen(!isOpen);
   };
 
-  const handleSelect = (value: string) => {
-    setSelected(value);
+  const handleSelect = (option: ISelectOption) => {
+    setSelected(option);
     setIsOpen(false);
   };
 
   const optionsList = useMemo(() => {
     return options.map((option) => (
       <li
-        key={option.id}
+        key={option.value}
         className={`${styles.select__text} ${styles[`select__text_${size}`]} ${styles.select__listItem} ${styles[`select__listItem_${size}`]}`}
-        onClick={() => handleSelect(option.value)}
+        onClick={() => handleSelect(option)}
       >
-        <SelectOptionContentComponent value={option.value} />
+        <SelectOptionContentComponent option={option} />
       </li>
     ));
   }, [options, SelectOptionContentComponent, size]);
@@ -75,7 +75,7 @@ export const Select = ({
           className={`${styles.select__text} ${styles[`select__text_${size}`]}`}
         >
           {selected ? (
-            <SelectOptionContentComponent value={selected} />
+            <SelectOptionContentComponent option={selected} />
           ) : (
             placeholder
           )}
