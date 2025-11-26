@@ -1,5 +1,6 @@
-import styles from './AbootCharacter.module.scss';
-import ArrowBack from '../../assets/icons/arrow_back.svg?react';
+import { ArrowBack } from '@/assets/svg';
+
+import styles from './AboutCharacter.module.scss';
 
 export const AboutCharacter = () => {
   return (

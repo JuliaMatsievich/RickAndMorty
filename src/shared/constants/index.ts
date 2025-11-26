@@ -1,0 +1,7 @@
+import {
+  GENDER_OPTIONS,
+  SPECIES_OPTIONS,
+  STATUS_OPTIONS
+} from './SelectOptions';
+
+export { SPECIES_OPTIONS, GENDER_OPTIONS, STATUS_OPTIONS };
