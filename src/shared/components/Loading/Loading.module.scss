@@ -1,0 +1,25 @@
+.loading {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    width: 100%;
+    flex: 1;
+    min-height: 100px;
+  }
+
+  &__imgContainer {
+    animation: spin 3s linear infinite;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

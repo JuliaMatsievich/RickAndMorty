@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router';
-import { PageLayout } from './components/PageLayout/PageLayuot.tsx';
-import { AboutCharacter } from './pages/AboutCharacter/AboutCharacter.tsx';
-import { Main } from './pages/Main/Main.tsx';
+
+import { AboutCharacter, Main } from './pages';
+import { PageLayout } from './shared/components';
 
 export const AppRoutes = () => {
   return (
