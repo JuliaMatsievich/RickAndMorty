@@ -4,3 +4,4 @@ export * from './Footer/Footer';
 export * from './Loading/Loading';
 export * from './Select/Select';
 export * from './Status/Status';
+export * from './Input/Input';
