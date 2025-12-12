@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 
 import { ArrowDown, ArrowUp } from '@/assets/svg';
+import { classNames } from '@/shared/helpers';
 import type { ISelectOption, ISelectOptionContentProps } from '@/shared/types';
 
 import styles from './Select.module.scss';
@@ -54,7 +55,18 @@ export const Select = ({
     return options.map((option) => (
       <li
         key={option.value}
-        className={`${styles.select__text} ${styles[`select__text_${size}`]} ${styles.select__listItem} ${styles[`select__listItem_${size}`]}`}
+        className={classNames(
+          styles.select__text,
+          {
+            [styles.select__text_big]: size === 'big',
+            [styles.select__text_small]: size === 'small'
+          },
+          styles.select__listItem,
+          {
+            [styles.select__listItem_big]: size === 'big',
+            [styles.select__listItem_small]: size === 'small'
+          }
+        )}
         onClick={() => handleSelect(option)}
       >
         <SelectOptionContentComponent option={option} />
@@ -68,11 +80,17 @@ export const Select = ({
       ref={selectRef}
     >
       <div
-        className={`${styles.select__placeholder} ${styles[`select__placeholder_${size}`]}`}
+        className={classNames(styles.select__placeholder, {
+          [styles.select__placeholder_big]: size === 'big',
+          [styles.select__placeholder_small]: size === 'small'
+        })}
         onClick={toggleOpen}
       >
         <p
-          className={`${styles.select__text} ${styles[`select__text_${size}`]}`}
+          className={classNames(styles.select__text, {
+            [styles.select__text_big]: size === 'big',
+            [styles.select__text_small]: size === 'small'
+          })}
         >
           {selected ? (
             <SelectOptionContentComponent option={selected} />
@@ -81,15 +99,28 @@ export const Select = ({
           )}
         </p>
         {isOpen ? (
-          <ArrowUp className={`${styles[`select__arrow_${size}`]}`} />
+          <ArrowUp
+            className={classNames({
+              [styles.select__arrow_big]: size === 'big',
+              [styles.select__arrow_small]: size === 'small'
+            })}
+          />
         ) : (
-          <ArrowDown className={`${styles[`select__arrow_${size}`]}`} />
+          <ArrowDown
+            className={classNames({
+              [styles.select__arrow_big]: size === 'big',
+              [styles.select__arrow_small]: size === 'small'
+            })}
+          />
         )}
       </div>
 
       {isOpen && (
         <ul
-          className={`${styles.select__list} ${styles[`select__list_${size}`]}`}
+          className={classNames(styles.select__list, {
+            [styles.select__list_big]: size === 'big',
+            [styles.select__list_small]: size === 'small'
+          })}
         >
           {optionsList}
         </ul>
