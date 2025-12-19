@@ -55,18 +55,10 @@ export const Select = ({
     return options.map((option) => (
       <li
         key={option.value}
-        className={classNames(
-          styles.select__text,
-          {
-            [styles.select__text_big]: size === 'big',
-            [styles.select__text_small]: size === 'small'
-          },
-          styles.select__listItem,
-          {
-            [styles.select__listItem_big]: size === 'big',
-            [styles.select__listItem_small]: size === 'small'
-          }
-        )}
+        className={classNames(styles.select__listItem, {
+          [styles.listItem_big]: size === 'big',
+          [styles.listItem_small]: size === 'small'
+        })}
         onClick={() => handleSelect(option)}
       >
         <SelectOptionContentComponent option={option} />
@@ -81,15 +73,15 @@ export const Select = ({
     >
       <div
         className={classNames(styles.select__placeholder, {
-          [styles.select__placeholder_big]: size === 'big',
-          [styles.select__placeholder_small]: size === 'small'
+          [styles.placeholder_big]: size === 'big',
+          [styles.placeholder_small]: size === 'small'
         })}
         onClick={toggleOpen}
       >
         <p
           className={classNames(styles.select__text, {
-            [styles.select__text_big]: size === 'big',
-            [styles.select__text_small]: size === 'small'
+            [styles.text_big]: size === 'big',
+            [styles.text_small]: size === 'small'
           })}
         >
           {selected ? (
@@ -101,15 +93,15 @@ export const Select = ({
         {isOpen ? (
           <ArrowUp
             className={classNames({
-              [styles.select__arrow_big]: size === 'big',
-              [styles.select__arrow_small]: size === 'small'
+              [styles.arrow_big]: size === 'big',
+              [styles.arrow_small]: size === 'small'
             })}
           />
         ) : (
           <ArrowDown
             className={classNames({
-              [styles.select__arrow_big]: size === 'big',
-              [styles.select__arrow_small]: size === 'small'
+              [styles.arrow_big]: size === 'big',
+              [styles.arrow_small]: size === 'small'
             })}
           />
         )}
@@ -118,8 +110,8 @@ export const Select = ({
       {isOpen && (
         <ul
           className={classNames(styles.select__list, {
-            [styles.select__list_big]: size === 'big',
-            [styles.select__list_small]: size === 'small'
+            [styles.list_big]: size === 'big',
+            [styles.list_small]: size === 'small'
           })}
         >
           {optionsList}

@@ -28,9 +28,9 @@ export const Input = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className={classNames({
-          [styles.input__big]: size === 'big',
-          [styles.input__small]: size === 'small',
-          [styles.input__withIcon]: icon !== undefined
+          [styles.input_big]: size === 'big',
+          [styles.input_small]: size === 'small',
+          [styles.input_withIcon]: icon !== undefined
         })}
         placeholder={placeholder}
       />

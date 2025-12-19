@@ -4,7 +4,7 @@
 	justify-content: space-between;
 	align-items: center;
 	
-	&__big {
+	&_big {
 		width: 240px;
 		height: 56px;
 		border: 1px solid rgba(0, 0, 0, 0.38);
@@ -21,7 +21,7 @@
 		}
 	}
 	
-	&__small {
+	&_small {
 		height: 30px;
 		border: none;
 		border-bottom: 1px solid black;
@@ -36,7 +36,7 @@
 		}
 	}
 	
-	&__withIcon {
+	&_withIcon {
 		padding-left: 48px;
 	}
 	
