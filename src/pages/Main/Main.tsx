@@ -1,4 +1,4 @@
-import { FilterMenu } from '@/widgets';
+import { CharacterCard, FilterMenu } from '@/widgets';
 
 import styles from './Main.module.scss';
 
@@ -10,7 +10,10 @@ export const Main = () => {
         alt='big-logo'
         className={styles.main__logo}
       />
-      <FilterMenu />
+      <div className={styles.filter}>
+        <FilterMenu />
+      </div>
+      <CharacterCard />
     </>
   );
 };

@@ -2,24 +2,33 @@
   display: flex;
   align-items: center;
   gap: 5px;
-
+  &__text {
+    &_big {
+      font-size: 16px;
+      line-height: 119%;
+      font-weight: 400;
+      color: rgb(0 0 0 / 60%);
+    }
+    &_small {
+      font-size: 14px;
+      line-height: 150%;
+      letter-spacing: 0.02em;
+      font-weight: 400;
+      color: rgb(0 0 0 / 60%);
+    }
+  }
   &__img {
     width: 10px;
     height: 10px;
     border-radius: 100%;
-  }
-
-  &__img {
     &_alive {
       background-color: #12b800;
     }
-
     &_dead {
       background-color: #df0000;
     }
-
     &_unknown {
-      background-color: #ff9900;
+      background-color: #f90;
     }
   }
 }

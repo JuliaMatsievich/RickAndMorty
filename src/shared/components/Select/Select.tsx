@@ -17,16 +17,19 @@ interface ISelectProps {
   placeholder: string;
   SelectOptionContentComponent?: React.FC<ISelectOptionContentProps>;
   size?: 'big' | 'small';
+  selected?: ISelectOption;
+  setSelected?: (value: ISelectOption) => void;
 }
 
 export const Select = ({
   options,
   placeholder,
   SelectOptionContentComponent = DefaultSelectOptionContent,
-  size = 'big'
+  size = 'big',
+  selected,
+  setSelected
 }: ISelectProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [selected, setSelected] = useState<ISelectOption>();
 
   const selectRef = useRef<HTMLDivElement>(null);
 
@@ -47,7 +50,9 @@ export const Select = ({
   };
 
   const handleSelect = (option: ISelectOption) => {
-    setSelected(option);
+    if (setSelected) {
+      setSelected(option);
+    }
     setIsOpen(false);
   };
 
@@ -61,7 +66,10 @@ export const Select = ({
         })}
         onClick={() => handleSelect(option)}
       >
-        <SelectOptionContentComponent option={option} />
+        <SelectOptionContentComponent
+          option={option}
+          size={size}
+        />
       </li>
     ));
   }, [options, SelectOptionContentComponent, size]);
@@ -85,7 +93,10 @@ export const Select = ({
           })}
         >
           {selected ? (
-            <SelectOptionContentComponent option={selected} />
+            <SelectOptionContentComponent
+              option={selected}
+              size={size}
+            />
           ) : (
             placeholder
           )}

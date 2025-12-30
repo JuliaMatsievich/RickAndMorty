@@ -12,7 +12,6 @@ import styles from './FilterMenu.module.scss';
 
 export const FilterMenu = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [nameCharacter, setNameCharacter] = useState<string>('');
 
   return (
     <div className={styles.filters}>
@@ -23,13 +22,6 @@ export const FilterMenu = () => {
         }}
         placeholder={'Filter by name...'}
         icon={<Search />}
-      />
-      <Input
-        value={nameCharacter}
-        onChange={(e) => {
-          setNameCharacter(e);
-        }}
-        size={'small'}
       />
       <Select
         options={SPECIES_OPTIONS}
@@ -43,12 +35,6 @@ export const FilterMenu = () => {
         options={STATUS_OPTIONS}
         placeholder='Status'
         SelectOptionContentComponent={Status}
-      />
-      <Select
-        options={STATUS_OPTIONS}
-        placeholder='Status'
-        SelectOptionContentComponent={Status}
-        size='small'
       />
     </div>
   );

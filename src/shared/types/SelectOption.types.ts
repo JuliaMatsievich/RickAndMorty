@@ -5,4 +5,5 @@ export interface ISelectOption {
 
 export interface ISelectOptionContentProps {
   option: ISelectOption;
+  size: 'big' | 'small';
 }

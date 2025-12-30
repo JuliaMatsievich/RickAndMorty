@@ -10,6 +10,7 @@ interface IInputProps {
   size?: 'big' | 'small';
   placeholder?: string;
   icon?: ReactNode;
+  classCustom?: string;
 }
 
 export const Input = ({
@@ -17,7 +18,8 @@ export const Input = ({
   onChange,
   size = 'big',
   placeholder = '',
-  icon
+  icon,
+  classCustom
 }: IInputProps) => {
   return (
     <div className={styles.input}>
@@ -27,11 +29,14 @@ export const Input = ({
       <input
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className={classNames({
-          [styles.input_big]: size === 'big',
-          [styles.input_small]: size === 'small',
-          [styles.input_withIcon]: icon !== undefined
-        })}
+        className={classNames(
+          {
+            [styles.input_big]: size === 'big',
+            [styles.input_small]: size === 'small',
+            [styles.input_withIcon]: icon !== undefined
+          },
+          classCustom
+        )}
         placeholder={placeholder}
       />
     </div>
