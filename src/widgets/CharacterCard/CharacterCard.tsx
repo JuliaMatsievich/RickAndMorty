@@ -35,8 +35,8 @@ export const CharacterCard = () => {
         />
       </div>
       <div className={styles.characterCard__info}>
-        <Link to={'/about'}>
-          <div className={styles.characterCard__name}>
+        <div className={styles.characterCard__name}>
+          {isEdit ? (
             <Input
               value={name}
               onChange={(e) => {
@@ -48,8 +48,11 @@ export const CharacterCard = () => {
                 [styles.input_noEdit]: !isEdit
               })}
             />
-          </div>
-        </Link>
+          ) : (
+            <Link to={'/about'}>{name}</Link>
+          )}
+        </div>
+
         <div>
           <p className={styles.characterCard__label}>Gender</p>
           <p className={styles.characterCard__value}>Mail</p>
