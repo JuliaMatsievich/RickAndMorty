@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { ChangeEvent, ReactNode } from 'react';
 
 import { classNames } from '@/shared/helpers';
 
@@ -6,7 +6,8 @@ import styles from './Input.module.scss';
 
 interface IInputProps {
   value: string;
-  onChange: (value: string) => void;
+  name: string;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   size?: 'big' | 'small';
   placeholder?: string;
   icon?: ReactNode;
@@ -15,6 +16,7 @@ interface IInputProps {
 
 export const Input = ({
   value,
+  name,
   onChange,
   size = 'big',
   placeholder = '',
@@ -28,7 +30,8 @@ export const Input = ({
       )}
       <input
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        name={name}
+        onChange={onChange}
         className={classNames(
           {
             [styles.input_big]: size === 'big',

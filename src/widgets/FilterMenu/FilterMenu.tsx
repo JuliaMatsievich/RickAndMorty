@@ -17,6 +17,7 @@ export const FilterMenu = () => {
     <div className={styles.filters}>
       <Input
         value={searchValue}
+        name='search'
         onChange={(e) => {
           setSearchValue(e);
         }}

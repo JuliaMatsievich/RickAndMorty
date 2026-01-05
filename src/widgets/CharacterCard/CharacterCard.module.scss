@@ -14,18 +14,14 @@
 		transition: opacity 0.2s ease-in-out;
 
 		&_pencil {
-			cursor: pointer;
-			width: 24px;
-			height: 24px;
 			opacity: 0;
-			visibility: hidden;
-			transition: opacity 0.2s ease-in-out, visibility 0.2s;
+			width: 17px;
+			height: 17px;
 		}
 	}
 
 	&:hover &__iconItem_pencil {
 		opacity: 1;
-		visibility: visible;
 	}
 
 	&__img {

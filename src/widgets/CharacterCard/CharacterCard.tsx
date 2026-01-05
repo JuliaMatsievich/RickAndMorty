@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { type ChangeEvent, useState } from 'react';
 
 import { Link } from 'react-router';
 
@@ -26,6 +26,14 @@ export const CharacterCard = () => {
     setIsEdit(false);
   };
 
+  const handleSetName = (event: ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+  };
+
+  const handleSetLocation = (event: ChangeEvent<HTMLInputElement>) => {
+    setLocation(event.target.value);
+  };
+
   return (
     <div className={styles.characterCard}>
       <div className={styles.characterCard__img}>
@@ -38,10 +46,9 @@ export const CharacterCard = () => {
         <div className={styles.characterCard__name}>
           {isEdit ? (
             <Input
+              name='name'
               value={name}
-              onChange={(e) => {
-                setName(e);
-              }}
+              onChange={handleSetName}
               size={'small'}
               classCustom={classNames({
                 [styles.input_edit]: isEdit,
@@ -65,9 +72,8 @@ export const CharacterCard = () => {
           <label className={styles.characterCard__label}>Location</label>
           <Input
             value={location}
-            onChange={(e) => {
-              setLocation(e);
-            }}
+            name='location'
+            onChange={handleSetLocation}
             size={'small'}
             classCustom={classNames(styles.input__location, {
               [styles.input_edit]: isEdit,
@@ -109,7 +115,10 @@ export const CharacterCard = () => {
         ) : (
           <Pencil
             onClick={handleEdit}
-            className={styles.characterCard__iconItem_pencil}
+            className={classNames(
+              styles.characterCard__iconItem,
+              styles.characterCard__iconItem_pencil
+            )}
           />
         )}
       </div>
