@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { type ChangeEvent, useState } from 'react';
 
 import { Search } from '@/assets/svg';
 import { Input, Select, Status } from '@/shared/components';
@@ -13,14 +13,16 @@ import styles from './FilterMenu.module.scss';
 export const FilterMenu = () => {
   const [searchValue, setSearchValue] = useState('');
 
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+  };
+
   return (
     <div className={styles.filters}>
       <Input
         value={searchValue}
         name='search'
-        onChange={(e) => {
-          setSearchValue(e);
-        }}
+        onChange={handleSearch}
         placeholder={'Filter by name...'}
         icon={<Search />}
       />
