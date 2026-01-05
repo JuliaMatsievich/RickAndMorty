@@ -1,0 +1,94 @@
+.characterCard {
+	display: flex;
+	gap: 13px;
+	border-radius: 6px;
+	width: 508px;
+	height: 248px;
+	box-shadow: 1px 1px 4px 0 rgb(0 0 0 / 25%);
+	padding: 7px;
+	
+	&__iconItem {
+		cursor: pointer;
+		width: 24px;
+		height: 24px;
+		transition: opacity 0.2s ease-in-out;
+
+		&_pencil {
+			opacity: 0;
+			width: 17px;
+			height: 17px;
+		}
+	}
+
+	&:hover &__iconItem_pencil {
+		opacity: 1;
+	}
+
+	&__img {
+		width: 240px;
+	}
+
+	&__info {
+		flex: 1 1 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__icons {
+		max-width: 48px;
+		min-width: 48px;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	&__label {
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 1;
+		letter-spacing: 0.02em;
+		color: #3f3f3f;
+	}
+
+	&__value {
+		font-weight: 400;
+		font-size: 14px;
+		line-height: 150%;
+		letter-spacing: 0.02em;
+		color: rgb(0 0 0 / 60%);
+	}
+
+	&__name {
+		cursor: pointer;
+		font-weight: 500;
+		font-size: 20px;
+		line-height: 150%;
+		letter-spacing: 0.01em;
+		color: rgb(0 0 0 / 87%);
+	}
+
+	.input {
+		&__location {
+			height: 17px;
+			font-weight: 400;
+			font-size: 14px;
+			line-height: 150%;
+			letter-spacing: 0.02em;
+			color: rgb(0 0 0 / 60%);
+			padding-left: 0;
+		}
+
+		&_edit {
+			border-bottom: 1px solid black;
+			padding-left: 0;
+		}
+
+		&_noEdit {
+			border-bottom: none;
+			padding-left: 0;
+			cursor: pointer;
+			user-select: none;
+			pointer-events: none;
+		}
+	}
+}

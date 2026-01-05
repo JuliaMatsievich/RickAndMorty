@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { type ChangeEvent, useState } from 'react';
 
 import { Search } from '@/assets/svg';
 import { Input, Select, Status } from '@/shared/components';
@@ -12,24 +12,19 @@ import styles from './FilterMenu.module.scss';
 
 export const FilterMenu = () => {
   const [searchValue, setSearchValue] = useState('');
-  const [nameCharacter, setNameCharacter] = useState<string>('');
+
+  const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
+  };
 
   return (
     <div className={styles.filters}>
       <Input
         value={searchValue}
-        onChange={(e) => {
-          setSearchValue(e);
-        }}
+        name='search'
+        onChange={handleSearch}
         placeholder={'Filter by name...'}
         icon={<Search />}
-      />
-      <Input
-        value={nameCharacter}
-        onChange={(e) => {
-          setNameCharacter(e);
-        }}
-        size={'small'}
       />
       <Select
         options={SPECIES_OPTIONS}
@@ -43,12 +38,6 @@ export const FilterMenu = () => {
         options={STATUS_OPTIONS}
         placeholder='Status'
         SelectOptionContentComponent={Status}
-      />
-      <Select
-        options={STATUS_OPTIONS}
-        placeholder='Status'
-        SelectOptionContentComponent={Status}
-        size='small'
       />
     </div>
   );
