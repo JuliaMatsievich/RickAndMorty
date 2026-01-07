@@ -43,22 +43,22 @@ export const CharacterCard = () => {
         />
       </div>
       <div className={styles.characterCard__info}>
-        <div className={styles.characterCard__name}>
-          {isEdit ? (
-            <Input
-              name='name'
-              value={name}
-              onChange={handleSetName}
-              size={'small'}
-              classCustom={classNames({
-                [styles.input_edit]: isEdit,
-                [styles.input_noEdit]: !isEdit
-              })}
-            />
-          ) : (
-            <Link to={'/about'}>{name}</Link>
-          )}
-        </div>
+        {isEdit ? (
+          <Input
+            name='name'
+            value={name}
+            onChange={handleSetName}
+            size={'small'}
+            classCustom={styles.input_edit}
+          />
+        ) : (
+          <Link
+            to={'/about'}
+            className={styles.characterCard__name}
+          >
+            {name}
+          </Link>
+        )}
 
         <div>
           <p className={styles.characterCard__label}>Gender</p>

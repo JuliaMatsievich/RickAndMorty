@@ -1,6 +1,8 @@
 .select {
   display: flex;
   flex-direction: column;
+  position: relative;
+  
   &__placeholder {
     display: flex;
     justify-content: space-between;
@@ -8,6 +10,7 @@
     cursor: pointer;
     color: #393939;
   }
+  
   .placeholder {
     &_big {
       border: 1px solid rgb(0 0 0 / 38%);
@@ -17,6 +20,7 @@
       padding-left: 14px;
       padding-right: 15px;
     }
+
     &_small {
       border: 1px solid #393939;
       border-radius: 6px;
@@ -26,68 +30,88 @@
       padding-right: 6px;
     }
   }
+
   .arrow {
     &_big {
       width: 24px;
       height: 24px;
     }
+
     &_small {
       width: 14px;
       height: 14px;
     }
   }
+
   &__text {
     font-weight: 400;
     color: rgb(0 0 0 / 60%);
   }
+
   .text {
     &_big {
       font-size: 16px;
       line-height: 119%;
     }
+
     &_small {
       font-size: 14px;
       line-height: 150%;
       letter-spacing: 0.02em;
     }
   }
+
   &__list {
+    position: absolute;
+    z-index: 1;
+    top: 60px;
+    left: 0;
     border: 1px solid rgb(0 0 0 / 38%);
     border-radius: 8px;
     margin-top: 8px;
     list-style: none;
     display: flex;
     flex-direction: column;
+    background-color: white;
   }
+
   .list {
     &_big {
       width: 240px;
     }
+
     &_small {
       width: 94px;
+      top: 20px;
     }
   }
+
   &__listItem {
     cursor: pointer;
     font-weight: 400;
     color: rgb(0 0 0 / 60%);
+
     &:hover {
       background-color: #dafed1;
       border: none;
     }
+
     &:first-child:hover {
       border-top-right-radius: 8px;
       border-top-left-radius: 8px;
     }
+
     &:last-child:hover {
       border-bottom-right-radius: 8px;
       border-bottom-left-radius: 8px;
     }
   }
+
   .listItem {
     &_big {
       padding: 10.5px 15px 10.5px 14px;
     }
+
     &_small {
       padding: 5px;
     }
