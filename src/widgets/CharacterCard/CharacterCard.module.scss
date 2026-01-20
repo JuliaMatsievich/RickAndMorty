@@ -24,8 +24,12 @@
 		opacity: 1;
 	}
 
+	&__imgContainer {
+		flex: 0 0 240px;
+	}
+	
 	&__img {
-		width: 240px;
+		width: 100%;
 	}
 
 	&__info {
