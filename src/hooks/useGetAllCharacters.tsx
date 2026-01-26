@@ -1,15 +1,14 @@
+import { getAllCharacters } from '@/services';
+import type { Character } from '@/shared/types/api.types.ts';
+
+import type { AxiosError } from 'axios';
 import { useEffect, useState } from 'react';
 
 import toast from 'react-hot-toast';
 
-import type { AxiosError } from 'axios';
-
-import { getAllCharacters } from '@/services';
-import type { Character } from '@/shared/types/api.types.ts';
-
 export const useGetAllCharacters = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const loadCharacters = async () => {
     getAllCharacters()
@@ -20,7 +19,7 @@ export const useGetAllCharacters = () => {
         console.error('error', err.message);
         toast.error(err.message);
       })
-      .finally(() => setLoading(false));
+      .finally(() => setIsLoading(false));
   };
 
   useEffect(() => {
@@ -28,7 +27,7 @@ export const useGetAllCharacters = () => {
   }, []);
 
   return {
-    loading,
+    isLoading,
     characters
   };
 };
