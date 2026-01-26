@@ -5,3 +5,4 @@ export * from './Loading/Loading';
 export * from './Select/Select';
 export * from './Status/Status';
 export * from './Input/Input';
+export * from './Toaster/ToasterCustom';

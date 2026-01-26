@@ -7,13 +7,18 @@ import { Input, Select, Status } from '@/shared/components';
 import { STATUS_OPTIONS } from '@/shared/constants';
 import { classNames } from '@/shared/helpers';
 import type { ISelectOption } from '@/shared/types';
+import type { Character } from '@/shared/types/api.types.ts';
 
 import styles from './CharacterCard.module.scss';
 
-export const CharacterCard = () => {
+interface ICharacterCardProps {
+  character: Character;
+}
+
+export const CharacterCard = ({ character }: ICharacterCardProps) => {
   const [isEdit, setIsEdit] = useState<boolean>(false);
-  const [name, setName] = useState<string>('Rick Sanchez');
-  const [location, setLocation] = useState<string>('Earth');
+  const [name, setName] = useState<string>(character.name);
+  const [location, setLocation] = useState<string>(character.location.name);
   const [selectedStatus, setSelectedStatus] = useState<ISelectOption>(
     STATUS_OPTIONS[0]
   );
@@ -36,9 +41,10 @@ export const CharacterCard = () => {
 
   return (
     <div className={styles.characterCard}>
-      <div className={styles.characterCard__img}>
+      <div className={styles.characterCard__imgContainer}>
         <img
-          src={'../src/assets/images/rick.png'}
+          className={styles.characterCard__img}
+          src={character?.image}
           alt='character'
         />
       </div>
@@ -48,12 +54,12 @@ export const CharacterCard = () => {
             name='name'
             value={name}
             onChange={handleSetName}
-            size={'small'}
+            size='small'
             classCustom={styles.input_edit}
           />
         ) : (
           <Link
-            to={'/about'}
+            to='/about'
             className={styles.characterCard__name}
           >
             {name}
@@ -62,11 +68,11 @@ export const CharacterCard = () => {
 
         <div>
           <p className={styles.characterCard__label}>Gender</p>
-          <p className={styles.characterCard__value}>Mail</p>
+          <p className={styles.characterCard__value}>{character.gender}</p>
         </div>
         <div>
           <p className={styles.characterCard__label}>Species</p>
-          <p className={styles.characterCard__value}>Human</p>
+          <p className={styles.characterCard__value}>{character.species}</p>
         </div>
         <div>
           <label className={styles.characterCard__label}>Location</label>
@@ -74,7 +80,7 @@ export const CharacterCard = () => {
             value={location}
             name='location'
             onChange={handleSetLocation}
-            size={'small'}
+            size='small'
             classCustom={classNames(styles.input__location, {
               [styles.input_edit]: isEdit,
               [styles.input_noEdit]: !isEdit
@@ -86,7 +92,7 @@ export const CharacterCard = () => {
           {isEdit ? (
             <Select
               options={STATUS_OPTIONS}
-              placeholder={'Status'}
+              placeholder='Status'
               SelectOptionContentComponent={Status}
               size='small'
               selected={selectedStatus}
@@ -95,7 +101,7 @@ export const CharacterCard = () => {
           ) : (
             <Status
               option={selectedStatus}
-              size={'small'}
+              size='small'
             />
           )}
         </div>
