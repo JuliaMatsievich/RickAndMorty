@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { ArrowDown, ArrowUp } from '@/assets/svg';
 import { classNames } from '@/shared/helpers';
@@ -17,8 +17,8 @@ interface ISelectProps {
   placeholder: string;
   SelectOptionContentComponent?: React.FC<ISelectOptionContentProps>;
   size?: 'big' | 'small';
-  selected?: ISelectOption;
-  setSelected?: (value: ISelectOption) => void;
+  selected: string | null;
+  setSelected: (value: string | null) => void;
 }
 
 export const Select = ({
@@ -32,6 +32,7 @@ export const Select = ({
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const selectRef = useRef<HTMLDivElement>(null);
+  const selectedOption = options.find((option) => option.value === selected);
 
   useEffect(() => {
     const handleOutSideClick = (event: MouseEvent) => {
@@ -49,12 +50,13 @@ export const Select = ({
     setIsOpen(!isOpen);
   };
 
-  const handleSelect = (option: ISelectOption) => {
-    if (setSelected) {
-      setSelected(option);
-    }
-    setIsOpen(false);
-  };
+  const handleSelect = useCallback(
+    (value: string | null) => {
+      setSelected(value);
+      setIsOpen(false);
+    },
+    [setSelected]
+  );
 
   const optionsList = useMemo(() => {
     return options.map((option) => (
@@ -64,7 +66,7 @@ export const Select = ({
           [styles.listItem_big]: size === 'big',
           [styles.listItem_small]: size === 'small'
         })}
-        onClick={() => handleSelect(option)}
+        onClick={() => handleSelect(option.value)}
       >
         <SelectOptionContentComponent
           option={option}
@@ -72,7 +74,7 @@ export const Select = ({
         />
       </li>
     ));
-  }, [options, SelectOptionContentComponent, size]);
+  }, [options, SelectOptionContentComponent, size, handleSelect]);
 
   return (
     <div
@@ -86,21 +88,21 @@ export const Select = ({
         })}
         onClick={toggleOpen}
       >
-        <p
+        <div
           className={classNames(styles.select__text, {
             [styles.text_big]: size === 'big',
             [styles.text_small]: size === 'small'
           })}
         >
-          {selected ? (
+          {selected && selectedOption ? (
             <SelectOptionContentComponent
-              option={selected}
+              option={selectedOption}
               size={size}
             />
           ) : (
             placeholder
           )}
-        </p>
+        </div>
         {isOpen ? (
           <ArrowUp
             className={classNames({

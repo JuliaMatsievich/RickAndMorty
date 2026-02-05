@@ -1,12 +1,13 @@
-import type { GetAllCharactersResponse } from '@/shared/types/api.types';
-
 import type {
   ISelectOption,
   ISelectOptionContentProps
-} from './SelectOption.types';
+} from '@/shared/types/SelectOption.types';
+import type { GetAllCharactersResponse } from '@/shared/types/api.types';
+import type { Filters } from '@/shared/types/filters.type';
 
 export type {
+  Filters,
+  GetAllCharactersResponse,
   ISelectOption,
-  ISelectOptionContentProps,
-  GetAllCharactersResponse
+  ISelectOptionContentProps
 };

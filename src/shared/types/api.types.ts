@@ -1,5 +1,5 @@
 export interface GetAllCharactersParams {
-  page?: number;
+  page: number;
   name?: string;
   species?: string;
   gender?: string;
