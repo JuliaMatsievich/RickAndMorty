@@ -19,18 +19,10 @@ export const useGetAllCharacters = (filters: Filters) => {
     abortControllerRef.current = controller;
 
     setIsLoading(true);
-
-    const nameFilter = filters.name ? { name: filters.name } : {};
-    const speciesFilter = filters.species ? { species: filters.species } : {};
-    const genderFilter = filters.gender ? { gender: filters.gender } : {};
-    const statusFilter = filters.status ? { status: filters.status } : {};
-
+    
     const params = {
+      ...filters,
       page: 1,
-      ...nameFilter,
-      ...speciesFilter,
-      ...genderFilter,
-      ...statusFilter
     };
 
     getAllCharacters(params, { signal: controller.signal })

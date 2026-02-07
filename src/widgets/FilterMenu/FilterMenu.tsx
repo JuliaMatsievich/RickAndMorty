@@ -44,6 +44,18 @@ export const FilterMenu = ({ filters, setFilters }: IFilterMenuProps) => {
     }));
   };
 
+  const handleSpeciesFilter = (value: string | null) => {
+    handleFilter(value, 'species');
+  };
+
+  const handleGenderFilter = (value: string | null) => {
+    handleFilter(value, 'gender');
+  };
+
+  const handleStatusFilter = (value: string | null) => {
+    handleFilter(value, 'status');
+  };
+
   return (
     <div className={styles.filters}>
       <Input
@@ -57,20 +69,20 @@ export const FilterMenu = ({ filters, setFilters }: IFilterMenuProps) => {
         options={SPECIES_OPTIONS}
         placeholder='Species'
         selected={filters.species}
-        setSelected={(value: string | null) => handleFilter(value, 'species')}
+        setSelected={handleSpeciesFilter}
       />
       <Select
         options={GENDER_OPTIONS}
         placeholder='Gender'
         selected={filters.gender}
-        setSelected={(value: string | null) => handleFilter(value, 'gender')}
+        setSelected={handleGenderFilter}
       />
       <Select
         options={STATUS_OPTIONS}
         placeholder='Status'
         SelectOptionContentComponent={Status}
         selected={filters.status}
-        setSelected={(value: string | null) => handleFilter(value, 'status')}
+        setSelected={handleStatusFilter}
       />
     </div>
   );

@@ -6,7 +6,7 @@ import { Check, Close, Pencil } from '@/assets/svg';
 import { Input, Select, Status } from '@/shared/components';
 import { STATUS_OPTIONS } from '@/shared/constants';
 import { classNames } from '@/shared/helpers';
-import type { Character } from '@/shared/types/api.types';
+import type { Character } from '@/shared/types';
 
 import styles from './CharacterCard.module.scss';
 
