@@ -1,4 +1,4 @@
-import type { ISelectOption } from '../types';
+import type { ISelectOption } from '@/shared/types';
 
 export const SPECIES_OPTIONS: ISelectOption[] = [
   { value: 'human', label: 'Human' },

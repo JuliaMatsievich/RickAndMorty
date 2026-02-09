@@ -1,2 +1,2 @@
-export * from './FilterMenu/FilterMenu';
 export * from './CharacterCard/CharacterCard';
+export * from './FilterMenu/FilterMenu';

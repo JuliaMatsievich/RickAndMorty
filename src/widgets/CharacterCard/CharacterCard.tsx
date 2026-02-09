@@ -6,8 +6,7 @@ import { Check, Close, Pencil } from '@/assets/svg';
 import { Input, Select, Status } from '@/shared/components';
 import { STATUS_OPTIONS } from '@/shared/constants';
 import { classNames } from '@/shared/helpers';
-import type { ISelectOption } from '@/shared/types';
-import type { Character } from '@/shared/types/api.types.ts';
+import type { Character } from '@/shared/types';
 
 import styles from './CharacterCard.module.scss';
 
@@ -19,8 +18,12 @@ export const CharacterCard = ({ character }: ICharacterCardProps) => {
   const [isEdit, setIsEdit] = useState<boolean>(false);
   const [name, setName] = useState<string>(character.name);
   const [location, setLocation] = useState<string>(character.location.name);
-  const [selectedStatus, setSelectedStatus] = useState<ISelectOption>(
-    STATUS_OPTIONS[0]
+  const [selectedStatus, setSelectedStatus] = useState<string>(
+    character.status.toLowerCase()
+  );
+
+  const selectedOption = STATUS_OPTIONS.find(
+    (option) => option.value === selectedStatus
   );
 
   const handleEdit = () => {
@@ -100,7 +103,12 @@ export const CharacterCard = ({ character }: ICharacterCardProps) => {
             />
           ) : (
             <Status
-              option={selectedStatus}
+              option={
+                selectedOption ?? {
+                  value: selectedStatus,
+                  label: character.status
+                }
+              }
               size='small'
             />
           )}

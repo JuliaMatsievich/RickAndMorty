@@ -1,9 +1,9 @@
 export interface GetAllCharactersParams {
-  page?: number;
-  name?: string;
-  species?: string;
-  gender?: string;
-  status?: string;
+  page: number;
+  name: string | null;
+  species: string | null;
+  gender: string | null;
+  status: string | null;
 }
 
 export interface GetAllCharactersResponse {

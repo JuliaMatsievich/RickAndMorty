@@ -1,9 +1,13 @@
-import { AppRoutes } from './routes';
+import { AppRoutes } from '@/routes';
+import { ErrorBoundary } from '@/shared/components';
+import { ErrorPage } from '@/pages/ErrorPage/ErrorPage';
 
 function App() {
   return (
     <>
-      <AppRoutes />
+      <ErrorBoundary fallback={<ErrorPage />}>
+        <AppRoutes />
+      </ErrorBoundary>
     </>
   );
 }

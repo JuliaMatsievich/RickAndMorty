@@ -1,30 +1,65 @@
 import { type ChangeEvent, useState } from 'react';
 
 import { Search } from '@/assets/svg';
+import { useDebouncedEffect } from '@/hooks/useDebounceEffect';
 import { Input, Select, Status } from '@/shared/components';
 import {
   GENDER_OPTIONS,
   SPECIES_OPTIONS,
   STATUS_OPTIONS
 } from '@/shared/constants';
-import type { ISelectOption } from '@/shared/types';
+import type { Filters } from '@/shared/types';
 
 import styles from './FilterMenu.module.scss';
 
-export const FilterMenu = () => {
-  const [searchValue, setSearchValue] = useState('');
-  const [species, setSpecies] = useState<ISelectOption>();
-  const [gender, setGender] = useState<ISelectOption>();
-  const [status, setStatus] = useState<ISelectOption>();
+const SEARCH_DEBOUNCE_DELAY = 1000;
+
+interface IFilterMenuProps {
+  filters: Filters;
+  setFilters: React.Dispatch<React.SetStateAction<Filters>>;
+}
+
+export const FilterMenu = ({ filters, setFilters }: IFilterMenuProps) => {
+  const [searchName, setSearchName] = useState('');
+
+  useDebouncedEffect(
+    () => {
+      setFilters((prev) => ({
+        ...prev,
+        name: searchName || null
+      }));
+    },
+    [searchName],
+    SEARCH_DEBOUNCE_DELAY
+  );
 
   const handleSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
+    setSearchName(event.target.value);
+  };
+
+  const handleFilter = (value: string | null, filter: keyof Filters) => {
+    setFilters((prev) => ({
+      ...prev,
+      [filter]: value
+    }));
+  };
+
+  const handleSpeciesFilter = (value: string | null) => {
+    handleFilter(value, 'species');
+  };
+
+  const handleGenderFilter = (value: string | null) => {
+    handleFilter(value, 'gender');
+  };
+
+  const handleStatusFilter = (value: string | null) => {
+    handleFilter(value, 'status');
   };
 
   return (
     <div className={styles.filters}>
       <Input
-        value={searchValue}
+        value={searchName}
         name='search'
         onChange={handleSearch}
         placeholder={'Filter by name...'}
@@ -33,21 +68,21 @@ export const FilterMenu = () => {
       <Select
         options={SPECIES_OPTIONS}
         placeholder='Species'
-        selected={species}
-        setSelected={setSpecies}
+        selected={filters.species}
+        setSelected={handleSpeciesFilter}
       />
       <Select
         options={GENDER_OPTIONS}
         placeholder='Gender'
-        selected={gender}
-        setSelected={setGender}
+        selected={filters.gender}
+        setSelected={handleGenderFilter}
       />
       <Select
         options={STATUS_OPTIONS}
         placeholder='Status'
         SelectOptionContentComponent={Status}
-        selected={status}
-        setSelected={setStatus}
+        selected={filters.status}
+        setSelected={handleStatusFilter}
       />
     </div>
   );
