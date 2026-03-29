@@ -9,9 +9,9 @@ export interface GetAllCharactersParams {
 export interface GetAllCharactersResponse {
   info: {
     count: number;
-    next: string;
+    next: string | null;
     pages: number;
-    prev: number | null;
+    prev: string | null;
   };
   results: Character[];
 }
