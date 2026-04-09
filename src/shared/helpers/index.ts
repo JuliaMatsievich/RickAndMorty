@@ -1,3 +1,1 @@
-import { classNames } from '@/shared/helpers/classNames';
-
-export { classNames };
+export * from './classNames';

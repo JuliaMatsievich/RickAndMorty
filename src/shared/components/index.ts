@@ -1,6 +1,7 @@
 export * from './ErrorBoundary/ErrorBoundary';
 export * from './Footer/Footer';
 export * from './Header/Header';
+export * from './InfiniteScroll/InfiniteScroll';
 export * from './Input/Input';
 export * from './Loading/Loading';
 export * from './PageLayout/PageLayuot';
